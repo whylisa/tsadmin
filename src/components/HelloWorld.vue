@@ -36,7 +36,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  @Prop() private msg!: string; // @Prop 父子组件之间值的传递
 }
 </script>
 
