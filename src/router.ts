@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Login from './components/login/login.vue';
 import HomeMain from './components/homeMain/homeMain.vue';
+import Directive from './components/directive/directive.vue';
 
 Vue.use(Router);
 
@@ -18,16 +19,18 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home,
-			children: [
-				{
-					path: '/homeMain',
-					name: 'homeMain',
-					component: HomeMain,
-					meta:{
-						title:"首页"
-					}
-				},
-			]
-    }
-  ]
+children: [
+{
+path: '/homeMain',
+name: 'homeMain',
+component: HomeMain,
+},
+{
+path: '/directive',
+name: 'directive',
+component: Directive,
+},
+],
+    },
+  ],
 });

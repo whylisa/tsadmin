@@ -28,13 +28,12 @@ private loginForm: object = {
 username: '',
 password: '',
 };
-private submitForm(formType: string): void {
-	console.log(this.loginForm);
-	this.$refs[formType].validate((valid: boolean) => {
-		if (valid) {
-			this.$router.push('home');
-		}
-	})
+private submitForm(): void {
+this.$refs.loginForm.validate((valid: boolean) => {
+if (valid) {
+this.$router.push('home');
+}
+});
 }
 }
 </script>
