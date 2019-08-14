@@ -1,7 +1,7 @@
 import { DirectiveOptions } from 'vue'
 
 export const colorDirective: DirectiveOptions = {
-    inserted(el, node) {
+    inserted(el:string, node: string): void {
 		//绑定颜色
         if (node.value) {
             el.style.backgroundColor = node.value.backgroundColor;

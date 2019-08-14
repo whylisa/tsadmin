@@ -1,7 +1,12 @@
 <template>
-	<div>
-		<div class="color__default" v-colorDirective="{color: 'red', backgroundColor: 'blue'}"> 我是自定义颜色指令</div>
-		<div>
+	<div id="directive">
+		<div class="directive-top">
+			typescript配合vue写自定义指令的时候，api和其他不一样，要引入DirectiveOptions
+		</div>
+		<div class="color-default" v-colorDirective="{color: 'yellow', backgroundColor: 'blue'}">我是自定义颜色指令</div>
+		<hr />
+		<div class="input-default">
+			<div class="color-default__title" v-colorDirective="{color: 'red', backgroundColor: 'blue'}">我是自定义表单验证指令</div>
 			<input type="text" v-check="{type:'phone',val:currentPhone}" placeholder="请输入手机号码" v-model="currentPhone" />
 			<input type="text" v-check="{type:'date',val:currentDate}" placeholder="请输入日期" v-model="currentDate" />
 			<input type="text" v-check="{type:'identification_card',val:currentIdentificationCard}" placeholder="请输入身份证" v-model="currentIdentificationCard" />
@@ -40,29 +45,50 @@
 </script>
 
 <style lang="less">
-	.color__default {
-		width: 200px;
-		height: 40px;
-		text-align: center;
-		line-height: 40px;
-		
-	}
-	input[type="text"] {
-		display: block;
-		width: 90%;
-		height: 40px;
-		line-height: 40px;
-		font-size: 16px;
-		text-indent: 1em;
-		margin: 5px auto;
-		outline: none; // 清除input默认样式
-		border: 1px solid #ccc;
-	}
+	#directive {
+		::selection {
+			background: red;
+			color: #fff;
+			text-shadow: none;
+		}
 
-	input[type="button"] {
-		display: block;
-		width: 70%;
-		height: 40px;
-		margin: 10px auto;
+		.directive-top {
+			width: 100%;
+			height: 80px;
+			text-align: center;
+			line-height: 80px;
+			margin-bottom: 20px;
+			background-color: rgba(66, 185, 131, 0.3);
+		}
+
+		.color-default {
+			width: 200px;
+			height: 40px;
+			text-align: center;
+			margin: 20px auto;
+			line-height: 40px;
+
+		}
+
+		.input-default {
+			.color-default__title {
+				width: 200px;
+				height: 40px;
+				text-align: center;
+				margin: 20px auto;
+				line-height: 40px;
+			}
+
+			input[type="text"] {
+				display: block;
+				height: 40px;
+				line-height: 40px;
+				font-size: 14px;
+				text-indent: 1em;
+				margin: 10px auto;
+				outline: none;
+				border: 1px solid #ccc;
+			}
+		}
 	}
 </style>

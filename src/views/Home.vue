@@ -20,6 +20,7 @@
 							<el-menu-item-group>
 								<el-menu-item index="/homeMain">首页</el-menu-item>
 								<el-menu-item index="/directive">自定义指令</el-menu-item>
+								<el-menu-item index="/mixins">混入</el-menu-item>
 							</el-menu-item-group>
 						</el-submenu>
 					</el-menu>
