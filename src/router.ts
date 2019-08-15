@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import Login from './components/login/login.vue';
-import HomeMain from './components/homeMain/homeMain.vue';
+import Login from './views/login/login.vue';
+import HomeMain from './views/homeMain/homeMain.vue';
 import Directive from './components/directive/directive.vue';
 import Mixins from './components/mixins/mixin.vue';
 
