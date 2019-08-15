@@ -11,9 +11,17 @@
 			</el-header>
 			<el-container>
 				<el-aside background-color="#26292E">
-					<el-menu :unique-opened="true" :router="true" class="el-menu-vertical-demo" :collapse="isCollapse" :default-active="$route.path">
-						<AsideList></AsideList>
-					</el-menu>
+						<el-menu :unique-opened="true" :router="true" class="el-menu-vertical-demo" :collapse="isCollapse" :default-active="$route.path">
+						<el-submenu :index="index.toString()" v-for="(item,index) in menus" :key="index">
+							<template slot="title">
+								<i :class="item.ico"></i>
+								<span slot="title">{{item.label}}</span>
+							</template>
+							<el-menu-item-group v-for="items in item.children">
+								<el-menu-item :index="items.url">{{items.label}}</el-menu-item>
+							</el-menu-item-group>
+						</el-submenu>
+						</el-menu>
 				</el-aside>
 				<el-container>
 					<el-scrollbar style="height: 100%;width: 100%;">
@@ -33,14 +41,13 @@
 		Vue,
 		Provide
 	} from 'vue-property-decorator';
-  import AsideList from '../components/aside/aside.vue'
+  import { menus }  from '../components/aside/asideMenus'
 	@Component({
-		components: {
-        AsideList
-		}
+		components: {}
 	})
 	export default class Home extends Vue {
 		isCollapse: boolean = false
+		@Provide() private menus: any[] = menus;
 		bgc: string = "background-color: #409EFF;color:#fff"
 		layout() {
 			this.$router.push("/")
