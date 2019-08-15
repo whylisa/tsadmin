@@ -12,17 +12,7 @@
 			<el-container>
 				<el-aside background-color="#26292E">
 					<el-menu :unique-opened="true" :router="true" class="el-menu-vertical-demo" :collapse="isCollapse" :default-active="$route.path">
-						<el-submenu index="1">
-							<template slot="title">
-								<i class="el-icon-location"></i>
-								<span slot="title">首页</span>
-							</template>
-							<el-menu-item-group>
-								<el-menu-item index="/homeMain">首页</el-menu-item>
-								<el-menu-item index="/directive">自定义指令</el-menu-item>
-								<el-menu-item index="/mixins">混入</el-menu-item>
-							</el-menu-item-group>
-						</el-submenu>
+						<AsideList></AsideList>
 					</el-menu>
 				</el-aside>
 				<el-container>
@@ -40,9 +30,15 @@
 <script lang="ts">
 	import {
 		Component,
-		Vue
+		Vue,
+		Provide
 	} from 'vue-property-decorator';
-	@Component({})
+  import AsideList from '../components/aside/aside.vue'
+	@Component({
+		components: {
+        AsideList
+		}
+	})
 	export default class Home extends Vue {
 		isCollapse: boolean = false
 		bgc: string = "background-color: #409EFF;color:#fff"
@@ -72,10 +68,12 @@
 			transition: all 1s;
 
 		}
+
 		.toggle:hover {
 			transform: rotateZ(-365deg);
 			background-color: red !important;
 		}
+
 		height: 100%;
 
 		.el-aside {

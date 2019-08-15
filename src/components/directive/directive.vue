@@ -27,6 +27,9 @@
 	} from './directives';
 
 	@Component({
+		components: {
+			
+		},
 		directives: {
 			colorDirective,
 			check
@@ -40,6 +43,8 @@
 		currentZipCode = ''
 		created() {
 			console.log(this)
+			console.log(this.$route.matched)
+		  this.$route.matched.filter(item => 	console.log(item.name))
 		}
 	}
 </script>
