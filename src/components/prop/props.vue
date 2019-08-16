@@ -1,6 +1,7 @@
 <template>
   <div id="prop">
-    <Children :age="age"></Children>
+      <p>{{mes}}</p>
+    <Children @bindMsg="getChildMes" :age="age"></Children>
   </div>
 </template>
 
@@ -15,6 +16,11 @@ import Children from './children.vue';
 })
 export default class Props extends Vue {
   public age: number = 155;
+  public mes: string = '';
+  private getChildMes(message: string): void {
+    // console.log(message);
+    this.mes = message;
+  }
 }
 </script>
 

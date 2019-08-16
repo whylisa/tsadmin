@@ -2,18 +2,26 @@
   <div id="children">
     我的年纪是{{ age }}
     我的顺子子{{ages}}
+    <el-button @click="sendMeg">点我</el-button>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue , Prop} from 'vue-property-decorator';
+import { Component, Vue , Prop, Emit} from 'vue-property-decorator';
 
 @Component({
 })
 export default class Children extends Vue {
-  @Prop(Number) public age!: number;
-
   public ages: number = 15;
+  public message: string = '我是子组件的数据';
+  @Prop(Number) public age!: number;
+  @Emit('bindMsg') public send(message: any): void {
+    // console.log(message);
+  }
+  public sendMeg(): void  {
+    this.message = '子组件数据传递给了父组件';
+    this.send(this.message);
+  }
 }
 </script>
 
