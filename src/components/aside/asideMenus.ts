@@ -1,6 +1,6 @@
 export const menus: any[] = [
   {
-    label: '首页',
+    label: 'document',
     ico: 'el-icon-location',
     children: [
       {
@@ -9,13 +9,18 @@ export const menus: any[] = [
         ico: 'el-icon-setting',
       },
       {
-        label: '自定义指令',
+        label: 'directive',
         url: '/directive',
         ico: 'el-icon-picture-outline',
       },
       {
-        label: '混入',
+        label: 'mixin',
         url: '/mixins',
+        ico: 'el-icon-picture-outline',
+      },
+      {
+        label: 'props',
+        url: '/props',
         ico: 'el-icon-picture-outline',
       },
     ],
