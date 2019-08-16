@@ -292,8 +292,7 @@ export default class Login extends Vue {}
         }
         .model {
           border-top: 1px solid #efefef;
-          .box {
-          }
+         
         }
       }
     }

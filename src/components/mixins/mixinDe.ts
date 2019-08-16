@@ -1,4 +1,4 @@
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator';
 /**
  * Mixin demo
  *
@@ -7,13 +7,15 @@ import { Vue, Component } from 'vue-property-decorator'
  * @extends {Vue}
  */
 @Component({})
+// tslint:disable-next-line:class-name
 export default class demoMixin extends Vue {
-  mixinText: string = '我是混进来的'
-  mixinOtherComponent: string = "我是外部mixin"
-  mixinFunc (): void {
-    this.mixinText = "我爱你中国"
+  public mixinText: string = '我是混进来的';
+  // tslint:disable-next-line:member-access
+  mixinOtherComponent: string = '我是外部mixin';
+  public mixinFunc(): void {
+    this.mixinText = '我爱你中国';
   }
-	 mixinOtherComponentFunc (): void {
-    this.mixinOtherComponent = "我是外部方法优先使用内部"
+  public mixinOtherComponentFunc(): void {
+    this.mixinOtherComponent = '我是外部方法优先使用内部';
   }
 }
