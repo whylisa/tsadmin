@@ -1,7 +1,8 @@
 <template>
   <div id="children">
-    我的年纪是{{ age }}
-    我的顺子子{{ages}}
+    <p>我是父组件的数据{{ age }}</p>
+    
+    <p>我是子组件的数据{{ages}}</p>
     <el-button @click="sendMeg">点我</el-button>
   </div>
 </template>
